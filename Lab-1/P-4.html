@@ -1,0 +1,18 @@
+<script>
+    let numbers = [];
+
+let size = parseInt(prompt("Enter the number of elements: "));
+
+for (let i = 0; i < size; i++) {
+  numbers.push(parseFloat(prompt("Enter Number")));
+}
+let maxNumber = numbers[0];
+      for (var i = 0; i < numbers.length; i++) {
+        if (numbers[i] > maxNumber) {
+          maxNumber = numbers[i];
+        }
+      }
+
+console.log("Maximum number: ", maxNumber);
+document.write("Maximum number: " + maxNumber);
+</script>

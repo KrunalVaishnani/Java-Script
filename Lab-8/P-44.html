@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CRUD Demo</title>
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      .container {
+        margin-top: 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="text-center">CRUD DEMO</h1>
+      <div class="input-group mb-3">
+        <input
+          type="text"
+          id="name"
+          class="form-control"
+          placeholder="Enter name"
+          aria-label="Enter name"
+        />
+        <div class="input-group-append">
+          <button class="btn btn-primary" onclick="add()">Add</button>
+        </div>
+      </div>
+      <div id="displayArea" class="mb-3"></div>
+      <div class="input-group mb-3">
+        <input
+          type="text"
+          id="index"
+          class="form-control"
+          placeholder="Index"
+          aria-label="Index"
+        />
+        <input
+          type="text"
+          id="editName"
+          class="form-control"
+          placeholder="New name"
+          aria-label="New name"
+        />
+        <div class="input-group-append">
+          <button class="btn btn-warning" onclick="editName()">Edit</button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const arr = [];
+
+      const add = () => {
+        let a = document.getElementById("name");
+        //console.log(a.value);
+        arr.push(a.value);
+        a.value = "";
+        display();
+      };
+
+      const display = () => {
+        let displayArea = document.getElementById("displayArea");
+        displayArea.innerHTML = "";
+        for (let i = 0; i < arr.length; i++) {
+          displayArea.innerHTML += `
+          <div class="input-group mb-1">
+            <input type="text" class="form-control" value="${i} : ${arr[i]}" readonly>
+            <div class="input-group-append">
+              <button class="btn btn-danger" onclick="deleteName(${i})">Delete</button>
+              <button class="btn btn-secondary" onclick="setEditName(${i})">Edit</button>
+            </div>
+          </div>`;
+        }
+      };
+
+      const deleteName = (i) => {
+        arr.splice(i, 1);
+        display();
+      };
+
+      const editName = () => {
+        let index = document.getElementById("index").value;
+        let name = document.getElementById("editName");
+        arr[index] = name.value;
+        name.value = "";
+        document.getElementById("index").value = "";
+        display();
+      };
+
+      function setEditName(i) {
+        let name = document.getElementById("editName");
+        name.value = arr[i];
+        let index = document.getElementById("index");
+        index.value = i;
+      }
+    </script>
+  </body>
+</html>

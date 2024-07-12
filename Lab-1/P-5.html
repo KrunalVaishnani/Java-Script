@@ -1,0 +1,22 @@
+<script>
+    let arr = [];
+
+let size = parseInt(prompt("Enter size of Array : "));
+
+for (let i = 0; i < size; i++) {
+  arr.push(parseFloat(prompt("Enter number ")));
+}
+
+for (let i = 0; i < arr.length; i++) {
+  for (let j = i + 1; j < arr.length; j++) {
+    if (arr[i] > arr[j]) {
+      let temp = arr[i];
+      arr[i] = arr[j];
+      arr[j] = temp;
+    }
+  }
+}
+
+console.log("Sorted array: ", arr);
+document.write("Sorted array: " + arr);
+</script>

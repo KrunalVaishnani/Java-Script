@@ -1,0 +1,16 @@
+<script>
+    n1 = Number.parseInt(prompt("Enter the number n1 : "));
+    n2 = Number.parseInt(prompt("Enter the number n2 : "));
+        for(i=n1+1;i<n2;i++){
+            flag = true;
+            for(j =2; j<i; j++){
+                if(i%j==0){
+                    flag = false;
+                    break;
+                }
+            }
+            if(flag){
+                document.write(i+"  ");
+            }
+        }
+</script>

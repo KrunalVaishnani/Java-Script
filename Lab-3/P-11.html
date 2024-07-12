@@ -1,0 +1,17 @@
+<script>
+  const number = Number.parseInt(prompt("Enter number = "));
+  let sum = 0,
+    temp = number,
+    remainder;
+  let digit = number.toString().length;
+  while (temp > 0) {
+    remainder = temp % 10;
+    sum += Math.pow(remainder, digit);
+    temp = Number.parseInt(temp / 10);
+  }
+  if (sum == number) {
+    document.write("number is Armstrong number");
+  } else {
+    document.write("number is not Armstrong number");
+  }
+</script>
